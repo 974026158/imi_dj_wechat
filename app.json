@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/mine/mine",
+    "pages/logs/logs",
+    "components/video/video",
+    "components/questionsAndAnswers/questionsAndAnswers",
+    "components/testQuestions/testQuestions",
+    "components/case/case",
+    "pages/search/search",
+    "pages/about/about",
+    "pages/booksColumn/booksColumn",
+    "components/title/title",
+    "pages/searchVideo/searchVideo",
+    "pages/videoColumn/videoColumn",
+    "pages/showVideo/showVideo",
+    "components/phoneAuth/phoneAuth",
+    "pages/booksReader/booksReader",
+    "components/showTost/showTost",
+    "pages/ExamCollectionDetails/ExamCollectionDetails",
+    "pages/CaseDetails/CaseDetails"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "mp-icon": "/components/icon/icon",
+    "title": "/components/title/title",
+    "show-tost":"/components/showTost/showTost"
+  }
+  
+}

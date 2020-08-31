@@ -1,0 +1,160 @@
+page {
+  background-color: "#F4F4F4";
+}
+
+.section {
+  background: #FFFFFF;
+  box-shadow: 0 4rpx 14rpx 0 rgba(97, 97, 97, 0.26);
+  border-radius: 16rpx;
+  box-sizing: border-box;
+  padding: 22rpx;
+  margin: 20rpx 28rpx;
+}
+
+.collection-info {
+  display: flex;
+  align-items: center;
+}
+
+.collection-info>image {
+  width: 180rpx;
+  height: 116rpx;
+  margin-right: 18rpx;
+  flex-shrink: 0;
+}
+
+.collection-name {
+  font-size: 28rpx;
+  color: #4A4A4A;
+}
+
+.collection-stat {
+  font-size: 24rpx;
+  color: #545454;
+}
+
+.collection-time {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 12rpx;
+}
+
+.collection-time>image {
+  width: 26rpx;
+  height: 26rpx;
+  margin-right: 12rpx;
+}
+
+.collection-time>text {
+  font-size: 24rpx;
+  color: #545454;
+}
+
+.pmed-qa-search-input {
+  height: 68rpx;
+  border-radius: 34rpx;
+  background: #F4F6F8;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 34rpx;
+}
+
+.pmed-qa-search-input>input {
+  flex-grow: 1;
+}
+
+.pmed-qa-search-input>image {
+  margin-left: 10rpx;
+  width: 34rpx;
+  height: 34rpx;
+}
+
+.pmed-exam-question-title{
+  font-size:28rpx;
+  color: #4A4A4A;
+}
+.red{
+  color:rgba(203,12,12,1);
+  font-style: normal;
+}
+.link{
+  color:blue;
+  text-decoration: underline;
+}
+.pmed-exam-question-answers{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 20rpx;
+}
+.pmed-exam-question-answer{
+  width: 96%;
+  font-size:24rpx;
+  color: #545454;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: row;
+}
+.pmed-exam-question-analysis{
+  margin-top: 20rpx;
+}
+.pmed-exam-question-analysis-item{
+  margin-top: 8rpx;
+}
+.pmed-exam-question-analysis-item>label{
+  font-size:24rpx;
+  color: #545454;
+}
+.pmed-exam-question-analysis-item>text,.pmed-exam-question-analysis-item>rich-text{
+  font-size:24rpx;
+  color: #545454;
+}
+.pmed-exam-question-analysis-item>text.pmed-exam-question-analysis-item-highlighted{
+  color:#CB0C0C;
+}
+.pmed-exam-question-tail{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 8rpx;
+}
+.pmed-exam-question-source{
+  font-size:24rpx;
+  color: #545454;
+  margin-top: 8rpx;
+}
+.pmed-exam-question-menu{
+  flex-shrink: 0;
+}
+.pmed-exam-question-menu>text{
+  font-size:24rpx;
+  color: #F83C37;
+}
+.pmed-exam-question-menu>text+text{
+  margin-left: 20rpx;
+}
+.pmed-search-list-item{
+  padding: 20rpx 0;
+  margin: 0 auto;
+  border-bottom: 2rpx solid #E8EBEF;
+}
+.pmed-search-list-tips{
+  text-align: center;
+  padding: 20rpx 0;
+}
+.pmed-icon-button{
+  display: flex;
+  align-items: center;
+}
+.pmed-icon-button>image{
+  width: 30rpx;
+  height: 20rpx;
+  margin-right: 10rpx;
+}
+.pmed-icon-button>text{
+  font-size: 24rpx;
+  color: #F83C37;
+}

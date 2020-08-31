@@ -1,0 +1,124 @@
+/* pages/video/video.wxss */
+@import "../../pages/index/index.wxss";
+@import "../../style/updateBooks.wxss";
+
+/* 搜索框 */
+.searchContainer {
+  width: 94%;
+  margin: 0 auto;
+  background: #fff;
+  padding-top: 32rpx;
+  margin-top: -50rpx;
+  position: relative;
+  border-radius: 25rpx 25rpx 0 0;
+}
+
+.searchDiv {
+  width: 90%;
+  height: 60rpx;
+  color: #d60000;
+  text-align: center;
+  line-height: 60rpx;
+  border: 2rpx solid #d60000;
+  border-radius: 40rpx 40rpx;
+  margin-bottom: 20rpx;
+  margin: 0 auto;
+}
+
+/* 显示视频div的头部 */
+.specialImgDiv {
+  height: 55rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 30rpx;
+  margin-bottom: 28rpx;
+}
+
+.specialImgDiv>.title {
+  width: 70%;
+  position: relative;
+  margin-left: -10rpx;
+}
+
+.specialImgDiv>.title>.titleText {
+  position: absolute;
+  left: 25rpx;
+  top: 24rpx;
+  color: #fff;
+}
+
+.specialImgDiv>.more {
+  color: #d60000;
+}
+
+/* 视频div */
+.specialContainer:nth-child(2) {
+  border-radius: 0 0 25rpx 25rpx;
+}
+
+.specialContainer {
+  width: 94%;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 25rpx;
+  padding-top: 20rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0px 0px 30px 1px #ccc;
+}
+
+.booksDiv {
+  display: flex;
+  /* flex-direction: column; */
+  /* padding-left: 20rpx; */
+  /* padding-right: 20rpx; */
+  /* padding-bottom: 20rpx; */
+  flex-wrap: wrap;
+  justify-content: space-around;
+  }
+.booksDivChildren{
+  margin: 20rpx;
+}
+.booksDivImg {
+  /* height: 410rpx;
+  width: 664rpx; */
+  height: 177rpx;
+  width: 313rpx;
+}
+
+/* 标题和主讲人 */
+.title,
+.titleBottom {
+  /* width: 100%; */
+  width:300rpx;
+  text-align: center;
+}
+
+.title {
+  font-size: 13px;
+  color: #666;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.titleBottom {
+  font-size: 12px;
+  color: #9d9d9d;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.titleCon {
+  color: #eb4d28;
+  border: 1px solid #eb4d28;
+  border-radius: 8rpx;
+  padding-left: 4rpx;
+  padding-right: 4rpx;
+  display: inline-block;
+  font-size: 20rpx;
+  background: #ffefef;
+}

@@ -1,0 +1,42 @@
+<view class="dataContainer containerCommon" style="padding-bottom: 160rpx;">
+	<!-- 视频banner -->
+	<view class="banner">
+		<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular>
+			<block>
+				<swiper-item>
+					<image class="swiper-item" src="../../images/Vzhuanti0.jpg"></image>
+				</swiper-item>
+			</block>
+		</swiper>
+		<view class="point">
+			<view class="{{activepoint==item.index?activePoint:pointChildren}}" wx:for="{{pointList}}" wx:key="index"></view>
+		</view>
+	</view>
+	<!-- 视频显示 -->
+	<view>
+		<!-- 搜索框  <view class="boxShaowStyle"></view>-->
+		<view class="searchContainer">
+			<view class="searchDiv" bindtap="goSearch">搜索视频</view>
+		</view>
+		<!-- 视频区 开始循环 -->
+		<view class="specialContainer" wx:for='{{videoList}}' wx:key='id'>
+			<view class="specialImgDiv">
+				<view class="title">
+					<image src="../../images/special.png" style="height:54rpx;margin-top:20rpx"></image>
+					<text class="titleText">{{item.name}}</text>
+				</view>
+				<view class="more" bindtap="goMore" data-name="{{item.name}}" data-id="{{item.id}}">更多>></view>
+			</view>
+			<view class="booksDiv">
+				<view wx:for='{{item.videoInfo}}' wx:key="id" data-id="{{item.id}}" bindtap="goShowVideo" class="booksDivChildren">
+					<view class="booksDivImg">
+						<image src="{{item.coverimgurl}}" style="width:100%;height:100%;border-radius: 25rpx;" class="borderCommon"></image>
+					</view>
+					<view class="title"><text class="titleCon" wx:if="{{item.isfree == 1}}">免费</text> {{item.videotitle}}</view>
+					<view class="titleBottom" wx:if='{{item.lecturer != ""}}'>主讲人: {{item.lecturer}}</view>
+					<view class="titleBottom" wx:else>{{item.introduction}}</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

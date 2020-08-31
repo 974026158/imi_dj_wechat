@@ -1,0 +1,259 @@
+/* pages/search/search.wxss */
+.searchContainer {}
+
+.searchContainer>.searchInput {
+  /* height: 110rpx; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-left: 20rpx;
+  padding-top: 20rpx;
+}
+
+.searchContainer>.searchInput>input {
+  width: 620rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  border-radius: 40rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  border: 1px solid #f8f8f8;
+  background: #f8f8f8;
+}
+
+.searchContainer>.searchInput>button {
+  width: 620rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  border-radius: 40rpx;
+  text-align: center;
+  font-size: 13px;
+  color: #fff;
+  background: #ee2400;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.cu-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1113;
+  opacity: 0;
+  outline: 0;
+  text-align: center;
+  -ms-transform: scale(1.185);
+  transform: scale(1.185);
+  backface-visibility: hidden;
+  perspective: 2000rpx;
+  background: rgba(0, 0, 0, 0.6);
+  transition: all 0.3s ease-in-out 0s;
+  pointer-events: none;
+}
+
+/* 模态窗口 */
+.cu-modal::before {
+  content: "\200B";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.cu-modal.show {
+  opacity: 1;
+  transition-duration: 0.3s;
+  -ms-transform: scale(1);
+  transform: scale(1);
+  overflow-x: hidden;
+  overflow-y: auto;
+  pointer-events: auto;
+  z-index: 1500;
+}
+
+.cu-dialog {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: auto;
+  margin-right: auto;
+  width: 680rpx;
+  max-width: 100%;
+  background-color: #f8f8f8;
+  border-radius: 10rpx;
+  overflow: hidden;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  background: #fff
+}
+
+.cu-modal.bottom-modal::before {
+  vertical-align: bottom;
+}
+
+.cu-modal.bottom-modal .cu-dialog {
+  width: 100%;
+  border-radius: 0;
+}
+
+.cu-modal.bottom-modal {
+  margin-bottom: -1000rpx;
+}
+
+.cu-modal.bottom-modal.show {
+  margin-bottom: 0;
+}
+
+.cu-modal.drawer-modal {
+  transform: scale(1);
+  display: flex;
+}
+
+.cu-modal.drawer-modal .cu-dialog {
+  height: 100%;
+  min-width: 200rpx;
+  border-radius: 0;
+  margin: initial;
+  transition-duration: 0.3s;
+}
+
+.cu-modal.drawer-modal.justify-start .cu-dialog {
+  transform: translateX(-100%);
+}
+
+.cu-modal.drawer-modal.justify-end .cu-dialog {
+  transform: translateX(100%);
+}
+
+.cu-modal.drawer-modal.show .cu-dialog {
+  transform: translateX(0%);
+}
+
+/* 叉号 */
+.cu-modal .cu-dialog>.cu-bar:first-child .action {
+  min-width: 100rpx;
+  margin-right: 0;
+  min-height: 100rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 30rpx;
+}
+
+/* 输入框容器 */
+.cu-modal .cu-form-group {
+  display: flex;
+  height: 100rpx;
+  border-bottom: 1px solid #f8f8f8;
+  align-items: center;
+  padding-left: 22rpx;
+  color: #222;
+}
+
+.cu-form-group picker {
+  flex: 1;
+  padding-right: 40rpx;
+  overflow: hidden;
+  position: relative;
+}
+
+.cu-form-group picker .picker {
+  line-height: 100rpx;
+  font-size: 28rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  text-align: right;
+}
+
+/* .cu-form-group picker::after {
+	font-family: "cuIcon";
+	display: block;
+	content: "\e6a3";
+	position: absolute;
+	font-size: 34rpx;
+	color: var(--grey);
+	line-height: 100rpx;
+	width: 60rpx;
+	text-align: center;
+	top: 0;
+	bottom: 0;
+	right: -20rpx;
+	margin: auto;
+} */
+
+/* 按钮 */
+.cu-btn {
+  width: 300rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 14px;
+  border: 1px solid #4369f7;
+}
+
+.line-blue {
+  background: #fff;
+  color: #4369f7;
+}
+
+.bg-blue {
+  background: #4369f7;
+  color: #fff;
+}
+
+/* 搜索内容显示 */
+.vantCard {
+  background: #fff;
+  min-height: 208rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+}
+
+.vantCard .vantText {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 20rpx;
+  width: 70%;
+}
+
+.vantCard .vantText>text {
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.vantCard .vantText .title {
+  font-size: 15px;
+  color: #222;
+}
+
+.vantCard>view {
+  min-width: 200rpx;
+  text-align: left;
+}
+
+.activeDefault {
+  display: flex;
+  width: 140rpx;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.activeClass {
+  color: #ee2400;
+  display: flex;
+  width: 140rpx;
+  /* text-align: center; */
+  justify-content: center;
+  border-bottom: 2px solid #ee2400;
+  font-size: 16px;
+  font-weight: bold;
+}

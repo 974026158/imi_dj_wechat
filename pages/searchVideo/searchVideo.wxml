@@ -1,0 +1,36 @@
+<view class="searchContainer">
+	<view style="position: fixed;width: 100%;background: #f8f8f8;top:0;">
+		<view class="searchInput">
+			<input type="text" placeholder="搜索视频" confirm-type="search" bindconfirm="searchByName"
+				style="border-radius:none" />
+		</view>
+		<!-- 下拉框 -->
+		<!-- <view style="height:100%">
+			<view class='list-msg' bindtap='bindShowMsg'>
+				<text>{{tihuoWay}}</text>
+				<image style='height:20rpx;width:20rpx;' src='../../images/arrow.png'></image>
+			</view>
+			<view class="select_box" wx:if="{{select}}">
+				<view class="select_one" bindtap="mySelect" data-name="按标题检索">按标题检索</view>
+				<view class="select_one" bindtap="mySelect" data-name="按主讲人检索">按主讲人检索</view>
+			</view>
+		</view> -->
+	</view>
+	<!-- 搜索内容展示 -->
+	<view class="searchData" wx:if='{{bookList.length>0}}' style='margin-top: 120rpx'>
+		<!-- 开始循环 -->
+		<view class="booksDiv" wx:for='{{bookList}}'>
+			<view class="booksDivImg" data-id="{{item.id}}" bindtap="goShowVideo">
+				<image src="{{item.coverimgurl}}" style="width:100%;height:100%;border-radius: 25rpx;" class="borderCommon">
+				</image>
+			</view>
+			<view class="title"><text class="titleCon" wx:if="{{item.isfree == 1}}">免费</text> {{item.videotitle}}</view>
+			<view class="titleBottom" wx:if='{{item.lecturer != ""}}'>主讲人: {{item.lecturer}}</view>
+			<view class="titleBottom" wx:else>{{item.introduction}}</view>
+		</view>
+		<view class="noMore" wx:if="{{listFlag}}">-- 没有更多 --</view>
+	</view>
+	<view style="height:200rpx;line-height:200rpx;text-align:center;margin-top:160rpx;background:#fff" wx:if="{{noSearch}}">
+		暂时没有数据
+	</view>
+</view>

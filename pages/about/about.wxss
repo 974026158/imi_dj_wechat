@@ -1,0 +1,17 @@
+/* pages/about/about.wxss */
+page{
+  background: #f8f8f8;
+}
+.aboutCon{
+  width: 100%;
+  height: 100%;
+}
+.aboutCon .aboutDiv{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  height: 100rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}

@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "expandable-wrapper": "/components/ExpandableWrapper/ExpandableWrapper",
+    "tag-select": "/components/TagSelect/TagSelect",
+    "sort-bar": "/components/SortBar/SortBar"
+  }
+}

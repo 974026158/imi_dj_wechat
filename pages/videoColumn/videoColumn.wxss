@@ -1,0 +1,3 @@
+@import "../../pages/booksColumn/booksColumn.wxss";
+@import "../../components/video/video.wxss";
+

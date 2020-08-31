@@ -1,0 +1,54 @@
+/* components/updateBooks/updateBooks.wxss */
+/* 最近更新 */
+.updateDiv {
+  width: 94%;
+  /* height: 510rpx; */
+  margin: 0 auto;
+  background: #fff;
+  position: relative;
+  margin-top: -50rpx;
+  padding: 25rpx 0 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.updateDiv>.searchDiv {
+  width: 93%;
+  height: 60rpx;
+  color: #d60000;
+  text-align: center;
+  line-height: 60rpx;
+  border: 2rpx solid #d60000;
+  border-radius: 40rpx 40rpx;
+  margin-bottom: 20rpx;
+}
+
+.updateDiv>.updateText {
+  color: #d60000;
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-bottom: 25rpx;
+}
+.updateDiv>.bookBanner {
+  height: 350rpx;
+  width: 100%;
+}
+.updateDiv>.bookBanner .swiper-item {
+  width: 192rpx;
+  height: 264rpx;
+}
+.updateDiv>.bookBanner .swiper-item:nth-child(1) {
+  margin-left: 13rpx;
+  margin-right: 13rpx;
+}
+.updateDiv>.bookBanner .swiper-item:nth-child(2) {
+  margin-right: 20rpx
+}
+.updateDiv>.bookBanner .bookText{
+  text-align: right;
+  width: 192rpx;
+  display: block;
+  margin-left: 18rpx;
+}

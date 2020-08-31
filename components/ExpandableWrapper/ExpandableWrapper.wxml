@@ -1,0 +1,11 @@
+<view>
+	<view style="{{outerStyle}}">
+		<view id="inner">
+			<slot></slot>
+		</view>
+	</view>
+	<view wx:if="{{!authorized || expandable}}" style="display: flex;flex-direction: row;justify-content: flex-end">
+		<image wx:if="{{!expanded}}" class="pmed-image-button" bindtap="expand" src="../../images/pmed/expand.png"></image>
+		<image wx:else class="pmed-image-button" bindtap="collapse" src="../../images/pmed/collapse.png"></image>
+	</view>
+</view>

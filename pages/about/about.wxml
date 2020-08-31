@@ -1,0 +1,8 @@
+<view>
+	<view class="aboutCon">
+		<view class="aboutDiv">
+			<text>版本号</text>
+			<text>1.0.0</text>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,70 @@
+/* pages/booksColumn/booksColumn.wxss */
+page{
+  background: #f8f8f8;
+}
+.swiper-tab {
+  border-bottom: 2rpx solid #ccc;
+  text-align: center;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+
+.scroll-x .swiper-tab-item {
+  color: #434343;
+  padding-left: 35rpx;
+  padding-right: 35rpx;
+  padding-bottom: 22rpx;
+}
+
+.active {
+  color: #f65959;
+  border-bottom: 6rpx solid #f65959;
+}
+
+swiper {
+  text-align: center;
+}
+.scroll-x{
+  white-space:nowrap;
+  display:flex;
+}
+.dataListDiv{
+  background: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  padding-left: 40rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+.dataListDiv .listImg{
+  width: 180rpx;
+  height: 240rpx;
+}
+.dataListDiv .listText{
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  /* padding-left: 40rpx; */
+  height: 77%;
+  width: 70%;
+padding-left: 20rpx;
+padding-right: 20rpx;
+
+}
+.dataListDiv .listText .bookName{
+  font-size: 15px;
+  color: #000;
+  font-weight: 600;
+}
+.dataListDiv .listText .bookauthor{
+  width: 100%;
+  text-align: left;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

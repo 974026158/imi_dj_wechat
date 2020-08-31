@@ -1,0 +1,3 @@
+<view class="pmed-qa-search-sort-fields">
+	<view wx:for="{{computedFields}}" wx:key="name" class="pmed-qa-search-sort-field {{item.selected?'pmed-qa-search-sort-field-selected':''}}" bindtap="toggleField" data-field="{{item}}">{{item.label}}</view>
+</view>

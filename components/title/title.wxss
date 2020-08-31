@@ -1,0 +1,31 @@
+/* components/title/title.wxss */
+.navbar {
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  height: 120rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  padding-left: 20rpx;
+  padding-top: 20rpx;
+  position: fixed;
+  top: 0;
+}
+
+.textDiv {
+  color: #000;
+  font-size: 16px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 128rpx;
+  font-weight: bold;
+}
+.sIze{
+  width: 80rpx;
+  height: 30%;
+}

@@ -1,0 +1,68 @@
+<view class="pemd-qa-search-toolbar">
+	<sort-bar value="{{sort}}" fields="{{sortFields}}" bindinput="onSortInput"></sort-bar>
+	<view class="pmed-qa-search-filter-trigger" bindtap="openFilters">
+		<image src="../../images/pmed/filter.png"></image>
+		<text>筛选</text>
+	</view>
+</view>
+<view class="pmed-search-list-body">
+	<view class="pmed-search-list-item" wx:for="{{items}}" wx:key="id">
+		<view class="pmed-exam-question">
+			<view class="pmed-exam-question-title">
+				<rich-text wx:if="{{item.highlightedDesc}}" nodes="【{{item.questionType}}】{{item.highlightedDesc}}"></rich-text>
+				<text wx:else>【{{item.questionType}}】{{item.desc}}</text>
+			</view>
+			<view class="pmed-exam-question-content">
+				<view class="pmed-exam-question-answers" wx:if="{{item.questionType !== '填空题'}}">
+					<view class="pmed-exam-question-answer" wx:for="{{item.answers}}" wx:for-item="answer">
+						<text>{{answer.label}}、</text>
+						<text>{{answer.content}}</text>
+					</view>
+				</view>
+				<view class="pmed-exam-question-analysis" wx:if="{{item.showAnalysis}}">
+					<view class="pmed-exam-question-analysis-item">
+						<label>正确答案：</label>
+						<text class="pmed-exam-question-analysis-item-highlighted">{{item.rightAnswers}}</text>
+					</view>
+					<view class="pmed-exam-question-analysis-item">
+						<label>题目原文：</label>
+						<text>{{item.originalText}}</text>
+					</view>
+					<view class="pmed-exam-question-analysis-item" data-name="{{item.collection.bookName}}" data-id="{{item.collection.code}}" bindtap="showBook">
+            <rich-text nodes="{{item.viaInfo}}"></rich-text>
+					</view>
+				</view>
+				<view class="pmed-exam-question-source">出自：{{item.collection.name}}</view>
+				<view class="pmed-exam-question-tail">
+					<view class="pmed-exam-question-menu">
+						<view class="pmed-icon-button" wx:if="{{!item.showAnalysis}}" data-index="{{index}}" data-question="{{item}}" bindtap="showQuestionAnalysis">
+							<image src="../../images/pmed/view@2x.png"></image>
+							<text>查看解析</text>
+						</view>
+						<view class="pmed-icon-button" wx:else data-index="{{index}}" bindtap="hideQuestionAnalysis">
+							<image src="../../images/pmed/hide@2x.png"></image>
+							<text>关闭解析</text>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="pmed-search-list-tips" wx:if="{{loadingTips}}">{{loadingTips}}</view>
+</view>
+<view class="pmed-search-popup-mask" wx:if="{{showFilters}}">
+	<view class="pmed-search-popup">
+		<view class="pmed-search-popup-header">
+			<view class="pmed-search-popup-title">试题类别</view>
+		</view>
+		<view class="pmed-search-popup-body">
+			<tag-select class="category-select" tag-class="category-select-tag" value="{{filters.selectedCategories}}" tags="{{categories}}" multiple="{{true}}" bindinput="onCategoryInput"></tag-select>
+		</view>
+		<view class="pmed-search-popup-footer">
+			<view class="pmed-search-buttons">
+				<view class="pmed-search-button" bindtap="cancelFilters">取消</view>
+				<view class="pmed-search-button-primary" bindtap="confirmFilters">确定</view>
+			</view>
+		</view>
+	</view>
+</view>

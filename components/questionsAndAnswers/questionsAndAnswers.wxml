@@ -1,0 +1,113 @@
+<view class="dataContainer containerCommon" style="padding-bottom: 160rpx;">
+	<!-- 问答banner -->
+	<view class="banner">
+		<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular>
+			<block>
+				<swiper-item>
+					<image class="swiper-item" src="../../images/pmed/qa.png"></image>
+				</swiper-item>
+			</block>
+		</swiper>
+		<view class="point">
+			<view class="{{activepoint==item.index?activePoint:pointChildren}}" wx:for="{{pointList}}" wx:key="index"></view>
+		</view>
+	</view>
+	<!-- 问答显示 -->
+	<view>
+		<!-- 问答区 -->
+		<view class="specialContainer">
+			<view class="specialImgDiv">
+				<view class="title">
+					<image src="../../images/special.png" style="height:54rpx;margin-top:20rpx"></image>
+					<text class="titleText">问答</text>
+				</view>
+			</view>
+			<view>
+				<view>
+					<view class="pmed-qa-search-form">
+						<view class="pmed-qa-search-input">
+							<input placeholder="请输入问答关键词" value="{{keyword}}" bindinput="onKeywordInput" confirm-type="search" bindconfirm="searchKeyword"></input>
+							<image src="../../images/pmed/search.png" bindtap="searchKeyword"></image>
+						</view>
+					</view>
+					<view wx:if="{{searched}}" class="pemd-qa-search-toolbar">
+						<sort-bar value="{{sort}}" fields="{{sortFields}}" bindinput="onSortInput"></sort-bar>
+						<view class="pmed-qa-search-filter-trigger" bindtap="openFilters">
+							<image src="../../images/pmed/filter.png"></image>
+							<text>筛选</text>
+						</view>
+					</view>
+					<view wx:if="{{searched}}" class="pmed-search-list-body">
+						<view class="pmed-search-list-item" wx:for="{{items}}" wx:key="id">
+							<view class="pmed-qa-item">
+								<view class="pmed-qa-item-title">
+									<image src="../../images/pmed/question.png"></image>
+									<rich-text wx:if="{{item.highlightedDesc}}" nodes="{{item.highlightedDesc}}"></rich-text>
+									<text wx:else>{{item.desc}}</text>
+								</view>
+								<expandable-wrapper max-height="70" authorized="{{!item.answerTruncated}}">
+									<view class="pmed-qa-item-answer">
+										<image src="../../images/pmed/reply.png"></image>
+										<text>{{item.answer}}</text>
+									</view>
+									<view wx:if="{{item.source && item.source.via}}" data-name="{{item.source.bookName}}" data-id="{{item.source.code}}" bindtap="showBook" style="font-size: 24rpx; margin-top: 10rpx;padding-left:46rpx;">
+										<text>{{item.source.via}}：</text>
+										<text>
+												<text style="color:blue;text-decoration: underline;">《{{item.source.bookName}}》第{{item.paperPageNo}}页</text>
+												<text>，{{item.source.bookVersion}}，{{item.source.bookPublisher}}</text>
+										</text>
+									</view>
+								</expandable-wrapper>
+							</view>
+						</view>
+						<view class="pmed-search-list-tips" wx:if="{{loadingTips}}">{{loadingTips}}</view>
+					</view>
+					<view wx:if="{{!searched&&randomItem}}" style="padding: 0 20rpx;">
+						<view class="pmed-qa-item">
+							<view class="pmed-qa-item-title">
+								<image src="../../images/pmed/question.png"></image>
+								<rich-text wx:if="{{randomItem.highlightedDesc}}" nodes="{{randomItem.highlightedDesc}}"></rich-text>
+								<text wx:else>{{randomItem.desc}}</text>
+							</view>
+							<view class="pmed-qa-item-answer">
+								<image src="../../images/pmed/reply.png"></image>
+								<text>{{randomItem.answer}}</text>
+							</view>
+							<view wx:if="{{randomItem.source && randomItem.source.via}}" data-name="{{randomItem.source.bookName}}" data-id="{{randomItem.source.code}}" bindtap="showBook" style="font-size: 24rpx; margin-top: 10rpx;padding-left:46rpx;">
+								<text>{{randomItem.source.via}}：</text>
+								<text>
+										<text style="color:blue;text-decoration: underline;">《{{randomItem.source.bookName}}》第{{randomItem.paperPageNo}}页</text>
+										<text>，{{randomItem.source.bookVersion}}，{{randomItem.source.bookPublisher}}</text>
+								</text>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+<view class="pmed-search-popup-mask" wx:if="{{showFilters}}">
+	<view class="pmed-search-popup">
+		<view class="pmed-search-popup-header">
+			<view class="pmed-search-popup-title">问答类别</view>
+		</view>
+		<view class="pmed-search-popup-body">
+			<tag-select class="category-select" tag-class="category-select-tag" value="{{filters.selectedCategory}}" tags="{{categories}}" multiple="{{false}}" bindinput="onCategoryInput"></tag-select>
+			<view class="pmed-search-filters">
+				<view class="pmed-search-filter" wx:for="{{tags}}" wx:key="type">
+					<view class="pmed-search-filter-label">{{item.type}}：</view>
+					<view class="pmed-search-filter-input">
+						<tag-select value="{{filters.selectedTag}}" tags="{{item.values}}" multiple="{{false}}" bindinput="onTagInput"></tag-select>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="pmed-search-popup-footer">
+			<view class="pmed-search-buttons">
+				<view class="pmed-search-button" bindtap="cancelFilters">取消</view>
+				<view class="pmed-search-button-primary" bindtap="confirmFilters">确定</view>
+			</view>
+		</view>
+	</view>
+</view>

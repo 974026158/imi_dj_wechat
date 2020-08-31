@@ -1,0 +1,25 @@
+
+<title page-name="我的"></title>
+<view class="containerCommon mineContainer" style="margin-top:{{isIphoneX?'208rpx':'160rpx'}}">
+	<view class="head">
+		<button wx:if="{{!hasUserInfo && canIUseGetUserInfo}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-green shadow commonButton'> 获取头像昵称 </button>
+		<block wx:else>
+			<view class='text-center'>
+				<view class="cu-avatar xl round solids" style="background-image:url({{userInfo.avatarUrl}})"></view>
+				<view class="padding wechatName">{{userInfo.nickName}}</view>
+			</view>
+		</block>
+	</view>
+	<view class="main">
+		<view class="about" bindtap="goAbout">
+			<text>关于</text>
+			<mp-icon icon="arrow" color="#d3d3d3" size="{{14}}"></mp-icon>
+		</view>
+	</view>
+</view>
+<import src="../../template/nav" />
+<view class="flex fix_nav_wp" style="height:{{isIphoneX?'140rpx':'114rpx'}}">
+	<block wx:for="{{navData}}" wx:key="">
+		<template is="nav" data="{{...item}}" />
+	</block>
+</view>

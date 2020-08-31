@@ -1,0 +1,29 @@
+<view>
+	<view class="section">
+		<view class="head">
+			<view class="tips">本内容为{{details.dataType==='微信'?details.author:details.site}}缓存页面，查看最新内容，可复制以下网址到浏览器中查看。</view>
+			<view class="pmed-case-url" bindtap="copyUrl">
+				<image src="../../images/pmed/link.png"></image>
+				<text>{{details.url}}</text>
+				<text>复制</text>
+			</view>
+		</view>
+	</view>
+	<view class="section">
+		<view class="body">
+			<view class="title">
+				<rich-text nodes="{{details.title}}"></rich-text>
+			</view>
+			<view class="infos">
+				<text>{{details.dataType==='微信'?details.author:details.site}}</text>
+				<text>{{details.publishTime}}</text>
+			</view>
+			<view class="content">
+				<view class="paragraph" wx:for="{{parsedParagraphs}}">
+					<rich-text wx:if="{{item.type==='text'}}" nodes="{{item.text}}"></rich-text>
+					<image wx:if="{{item.type==='image'}}" src="{{item.src}}" mode="widthFix"></image>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

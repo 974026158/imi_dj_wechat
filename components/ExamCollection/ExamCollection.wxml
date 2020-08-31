@@ -1,0 +1,46 @@
+<view class="pemd-qa-search-toolbar">
+	<sort-bar value="{{sort}}" fields="{{sortFields}}" bindinput="onSortInput"></sort-bar>
+	<view class="pmed-qa-search-filter-trigger" bindtap="openFilters">
+		<image src="../../images/pmed/filter.png"></image>
+		<text>筛选</text>
+	</view>
+</view>
+<view class="pmed-search-list-body">
+	<view class="pmed-exam-question-collections">
+		<view class="pmed-exam-question-collection" wx:for="{{items}}" wx:key="id" data-id="{{item.id}}" bindtap="showDetails">
+			<image class="pmed-exam-question-collection-pic" src="{{item.coverPictureUrl}}"></image>
+			<view class="pmed-exam-question-collection-info">
+				<view>
+					<view class="pmed-exam-question-collection-name">{{item.name}}</view>
+					<view class="pmed-exam-question-collection-counts">
+						<text>单选题{{item.singleChoiceCount}}</text>
+						<text>多选题{{item.multipleChoiceCount}}</text>
+						<text>判断题{{item.judgeCount}}</text>
+						<text>填空题{{item.fillCount}}</text>
+					</view>
+				</view>
+				<view class="pmed-exam-question-collection-time">
+					<image src="../../images/pmed/clock.png"></image>
+					<text>编制时间：{{item.preparationTime}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="pmed-search-list-tips" wx:if="{{loadingTips}}">{{loadingTips}}</view>
+</view>
+<view class="pmed-search-popup-mask" wx:if="{{showFilters}}">
+	<view class="pmed-search-popup">
+		<view class="pmed-search-popup-header">
+			<view class="pmed-search-popup-title">试题类别</view>
+		</view>
+		<view class="pmed-search-popup-body">
+			<tag-select class="category-select" tag-class="category-select-tag" value="{{filters.selectedCategories}}" tags="{{categories}}" multiple="{{true}}" bindinput="onCategoryInput"></tag-select>
+		</view>
+		<view class="pmed-search-popup-footer">
+			<view class="pmed-search-buttons">
+				<view class="pmed-search-button" bindtap="cancelFilters">取消</view>
+				<view class="pmed-search-button-primary" bindtap="confirmFilters">确定</view>
+			</view>
+		</view>
+	</view>
+</view>

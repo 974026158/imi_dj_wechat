@@ -1,0 +1,20 @@
+<view class="swiper-tab" style="position: fixed;top:0;background:#f8f8f8;width:100%" wx:if='{{tabList.length>0}}'>
+	<scroll-view class="scroll-x" scroll-x="true" scroll-x style="height: 88rpx;">
+		<text wx:for='{{tabList}}' wx:key="id" class="swiper-tab-item {{currentTab==item.id?'active':''}}" data-current = "{{item.id}}" bindtap="clickTab">{{item.name}}</text>
+	</scroll-view>
+</view>
+<view style="margin-top:{{tabList.length>0?'90rpx':'0'}};background:#fff;" class="booksDiv">
+	<view style="height:{{tabList.length>0?'0rpx':'88rpx'}};padding-bottom:{{windowHeight>724?'40rpx':'0rpx'}}" class="placeholderDiv">
+		<view class="placeholderDivChildren" style="width:{{tabList.length>0?'0rpx':'100%'}}"></view>
+	</view>
+	<view wx:for='{{list}}' wx:key="id" data-id="{{item.id}}" bindtap="goShowVideo" style="margin:30rpx" class="videoImg">
+		<view class="booksDivImg">
+			<!-- 'Cache-Control': 'max-age=86400' -->
+			<image src="{{item.coverimgurl}}" style="width:100%;height:100%;border-radius: 25rpx;" class="borderCommon" lazy-load="true"></image>
+		</view>
+		<view class="title"><text class="titleCon" wx:if="{{item.isfree == 1}}">免费</text> {{item.videotitle}}</view>
+		<view class="titleBottom" wx:if='{{item.lecturer != ""}}'>主讲人: {{item.lecturer}}</view>
+		<view class="titleBottom" wx:else>{{item.introduction}}</view>
+	</view>
+	<view class="noMore" wx:if="{{listFlag}}">-- 没有更多 --</view>
+</view>

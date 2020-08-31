@@ -1,0 +1,120 @@
+page {
+  background: #fff;
+}
+
+/* 搜索框 */
+.searchInput {
+  height: 110rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.searchInput>input {
+  width: 90%;
+  background: #fff;
+  height: 64rpx;
+  line-height: 64rpx;
+  border-radius: 40rpx;
+  padding-left: 20rpx;
+  border: 1px solid #ccc;
+  background: #f8f8f8;
+}
+
+/* 下拉框 */
+.list-msg {
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  padding: 0 10rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+
+.select_box {
+  background-color: #f8f8f8;
+  padding: 0 10rpx;
+  width: 92%;
+  position: absolute;
+  top: 173rpx;
+  left: 20rpx;
+  z-index: 1;
+  overflow: hidden;
+  animation: myfirst 0.5s;
+}
+
+@keyframes myfirst {
+  from {
+    height: 0rpx;
+  }
+
+  to {
+    height: 210rpx;
+  }
+}
+
+.select_one {
+  height: 60rpx;
+  line-height: 60rpx;
+  border-bottom: 1px solid #ccc;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.select_one:last-child {
+  border-bottom: none;
+}
+
+/* 搜索内容DIV */
+.searchData {
+  display: flex;
+  flex-wrap: wrap;
+  background: #fff;
+  justify-content: space-around;
+}
+
+.booksDiv {
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx;
+  align-items: center;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+
+.booksDiv:last-child {
+  margin-bottom: none;
+}
+
+.booksDivImg {
+  height: 177rpx;
+  width: 313rpx;
+}
+
+/* 标题和主讲人 */
+.title,
+.titleBottom {
+  width: 300rpx;
+  text-align: center;
+}
+
+.title {
+  font-size: 13px;
+  color: #666;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.titleBottom {
+  font-size: 12px;
+  color: #9d9d9d;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

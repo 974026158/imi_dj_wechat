@@ -1,0 +1,68 @@
+<view>
+	<view class="section">
+		<view class="collection-info">
+			<image src="{{collection.coverPictureUrl}}"></image>
+			<view class="collection-extra-info">
+				<view class="collection-name">{{collection.name}}</view>
+				<view class="collection-stat">单选题{{collection.singleChoiceCount}};多选题{{collection.multipleChoiceCount}};判断题{{collection.judgeCount}};填空题{{collection.fillCount}}；</view>
+				<view class="collection-time">
+					<image src="../../images/pmed/clock.png"></image>
+					<text>编制时间：{{collection.preparationTime}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="section">
+		<view class="pmed-qa-search-form">
+			<view class="pmed-qa-search-input">
+				<input placeholder="请输入试题关键词" value="{{keyword}}" bindinput="onKeywordInput" confirm-type="search" bindconfirm="search"></input>
+				<image src="../../images/pmed/search.png" bindtap="search"></image>
+			</view>
+		</view>
+		<view class="pmed-search-list-body">
+			<view class="pmed-search-list-item" wx:for="{{items}}" wx:key="id">
+				<view class="pmed-exam-question">
+					<view class="pmed-exam-question-title">
+						<rich-text wx:if="{{item.highlightedDesc}}" nodes="【{{item.questionType}}】{{item.highlightedDesc}}"></rich-text>
+						<text wx:else>【{{item.questionType}}】{{item.desc}}</text>
+					</view>
+					<view class="pmed-exam-question-content">
+						<view class="pmed-exam-question-answers" wx:if="{{item.questionType !== '填空题'}}">
+							<view class="pmed-exam-question-answer" wx:for="{{item.answers}}" wx:for-item="answer">
+								<text>{{answer.label}}、</text>
+								<text>{{answer.content}}</text>
+							</view>
+						</view>
+						<view class="pmed-exam-question-analysis" wx:if="{{item.showAnalysis}}">
+							<view class="pmed-exam-question-analysis-item">
+								<label>正确答案：</label>
+								<text class="pmed-exam-question-analysis-item-highlighted">{{item.rightAnswers}}</text>
+							</view>
+							<view class="pmed-exam-question-analysis-item">
+								<label>题目原文：</label>
+								<text>{{item.originalText}}</text>
+							</view>
+							<view class="pmed-exam-question-analysis-item" data-name="{{item.collection.bookName}}" data-id="{{item.collection.code}}" bindtap="showBook">
+								<rich-text nodes="{{item.viaInfo}}"></rich-text>
+							</view>
+						</view>
+						<view class="pmed-exam-question-source">出自：{{item.collection.name}}</view>
+						<view class="pmed-exam-question-tail">
+							<view class="pmed-exam-question-menu">
+								<view class="pmed-icon-button" wx:if="{{!item.showAnalysis}}" data-index="{{index}}" data-question="{{item}}" bindtap="showQuestionAnalysis">
+									<image src="../../images/pmed/view@2x.png"></image>
+									<text>查看解析</text>
+								</view>
+								<view class="pmed-icon-button" wx:else data-index="{{index}}" bindtap="hideQuestionAnalysis">
+									<image src="../../images/pmed/hide@2x.png"></image>
+									<text>关闭解析</text>
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+			<view class="pmed-search-list-tips" wx:if="{{loadingTips}}">{{loadingTips}}</view>
+		</view>
+	</view>
+</view>

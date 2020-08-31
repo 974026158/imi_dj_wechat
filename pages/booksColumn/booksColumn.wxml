@@ -1,0 +1,29 @@
+<view>
+	<view class="swiper-tab" style="position: fixed;top:0;background:#f8f8f8;width:100%;z-index:123" wx:if='{{tabList.length>0}}'>
+		<scroll-view class="scroll-x" scroll-x="true" scroll-x style="height: 88rpx;">
+			<text wx:for='{{tabList}}' wx:key="id" class="swiper-tab-item {{currentTab==item.id?'active':''}}" data-current = "{{item.id}}" bindtap="clickTab">{{item.name}}</text>
+		</scroll-view>
+	</view>
+	<view style="margin-top:{{tabList.length>0?'90rpx':'0'}};">
+		<view>
+			<view style="height:{{tabList.length>0?'0rpx':'44rpx'}};padding-top:{{tabList.length>0?'0':'44rpx'}}" class="placeholderDiv">
+				<view class="placeholderDivChildren" style="width:{{tabList.length>0?'0rpx':'100%'}};margin-top:0;"></view>
+			</view>
+			<view class="dataListDiv" style="margin-bottom:20rpx" wx:for='{{list}}' wx:key="bookid" data-isfree="{{item.isfree}}" data-bookname="{{item.bookName}}" data-bookid="{{item.bookid}}" bindtap="showBook">
+				<view class="listImg">
+					<image src="{{list.length>0 ?config.url_prefix+item.imgUrl:''}}" style="width:100%;height:100%" class="borderCommon"></image>
+				</view>
+				<view class="listText">
+					<text class="bookName bookauthor"><text class="titleCon" wx:if="{{item.isfree == 1}}" style="position: relative;top: -1px;">免费</text> {{item.bookname}}</text>
+					<text class="bookauthor">【作/编者】：{{item.author}}</text>
+					<text class="bookauthor">【书号】：{{item.isbn}}</text>
+					<text class="bookauthor">【出版社】：{{item.publish}}</text>
+					<text class="bookauthor">【出版时间】：{{item.releaseDate}}</text>
+				</view>
+			</view>
+		</view>
+		<view class="noMore" wx:if="{{listFlag}}">-- 没有更多 --</view>
+	</view>
+
+</view>
+<show-tost wx:if="{{showToastFlag}}"></show-tost>

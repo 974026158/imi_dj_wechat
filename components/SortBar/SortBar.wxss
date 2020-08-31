@@ -1,0 +1,30 @@
+.pmed-qa-search-sort-fields {
+  display: flex;
+  align-items: center;
+}
+
+.pmed-qa-search-sort-field {
+  padding: 0 20rpx;
+  font-size: 24rpx;
+  color: #4A4A4A;
+}
+
+.pmed-qa-search-sort-field-selected {
+  color: #F83C37;
+}
+
+.pmed-qa-search-sort-field:first-child {
+  padding-left: 0;
+}
+
+.pmed-qa-search-sort-field:last-child {
+  padding-right: 0;
+}
+
+.pmed-qa-search-sort-field+.pmed-qa-search-sort-field {
+  border-left: 1px solid #E8EBEF;
+}
+
+.pmed-qa-search-sort-fields {
+  padding: 10rpx 0;
+}

@@ -1,0 +1,170 @@
+/* pages/video/video.wxss */
+@import "../../pages/index/index.wxss";
+@import "../../style/updateBooks.wxss";
+
+
+/* 显示视频div的头部 */
+.specialImgDiv {
+  height: 55rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 30rpx;
+  margin-bottom: 28rpx;
+}
+
+.specialImgDiv>.title {
+  width: 70%;
+  position: relative;
+  margin-left: -10rpx;
+}
+
+.specialImgDiv>.title>.titleText {
+  position: absolute;
+  left: 25rpx;
+  top: 24rpx;
+  color: #fff;
+}
+
+.specialImgDiv>.more {
+  color: #d60000;
+}
+
+
+.specialContainer {
+  width: 94%;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 25rpx;
+  padding-top: 20rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0px 0px 30px 1px #ccc;
+  margin-top: -50rpx;
+  position: relative;
+  margin-top: -50rpx;
+}
+
+/* 标题和主讲人 */
+.title,
+.titleBottom {
+  /* width: 100%; */
+  width: 300rpx;
+  text-align: center;
+}
+
+.title {
+  font-size: 13px;
+  color: #666;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.titleBottom {
+  font-size: 12px;
+  color: #9d9d9d;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.titleCon {
+  color: #eb4d28;
+  border: 1px solid #eb4d28;
+  border-radius: 8rpx;
+  padding-left: 4rpx;
+  padding-right: 4rpx;
+  display: inline-block;
+  font-size: 20rpx;
+  background: #ffefef;
+}
+
+/*搜索框*/
+.pmed-qa-search-input {
+  height: 68rpx;
+  border-radius: 34rpx;
+  background: #F4F6F8;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 34rpx;
+  flex-grow: 1;
+  margin-left: 22rpx;
+}
+
+.pmed-qa-search-input>input {
+  flex-grow: 1;
+}
+
+.pmed-qa-search-input>image {
+  margin-left: 10rpx;
+  width: 34rpx;
+  height: 34rpx;
+}
+
+.pmed-qa-search-form {
+  padding: 0 38rpx 40rpx;
+  display: flex;
+  align-items: center;
+}
+
+.pmed-select{
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.pmed-select>text{
+  font-size: 26rpx;
+  color: #4F515D;
+}
+.pmed-select>image{
+  width: 20rpx;
+  height: 12rpx;
+  margin-left: 6rpx;
+}
+.pmed-select-popup{
+  position: absolute;
+  left: 0;
+  top: 36rpx;
+  background-color: white;
+  padding: 10rpx 20rpx;
+  border: 2rpx solid #e4e7ed;
+  border-radius: 8rpx;
+  box-shadow: 0 4rpx 24rpx 0 rgba(0,0,0,.1);
+}
+.pmed-select-popup>view{
+  margin: 10rpx 0;
+  white-space: nowrap;
+  font-size: 30rpx;
+}
+
+.pemd-qa-search-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pmed-qa-search-filter-trigger {
+  display: flex;
+  align-items: center;
+}
+
+.pmed-qa-search-filter-trigger>image {
+  width: 28rpx;
+  height: 28rpx;
+  margin-right: 8rpx;
+}
+
+.pmed-qa-search-filter-trigger>text {
+  font-size: 24rpx;
+  color: #4A4A4A;
+}
+
+.pemd-qa-search-toolbar {
+  margin: 0 22rpx;
+  border-bottom: 1px solid #E8EBEF;
+}
+

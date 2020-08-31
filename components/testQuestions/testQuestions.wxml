@@ -1,0 +1,46 @@
+<view class="dataContainer containerCommon" style="padding-bottom: 160rpx;">
+	<!-- 问答banner -->
+	<view class="banner">
+		<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular>
+			<block>
+				<swiper-item>
+					<image class="swiper-item" src="../../images/pmed/exam.png"></image>
+				</swiper-item>
+			</block>
+		</swiper>
+		<view class="point">
+			<view class="{{activepoint==item.index?activePoint:pointChildren}}" wx:for="{{pointList}}" wx:key="index"></view>
+		</view>
+	</view>
+	<!-- 问答显示 -->
+	<view>
+		<!-- 问答区 -->
+		<view class="specialContainer">
+			<view class="specialImgDiv">
+				<view class="title">
+					<image src="../../images/special.png" style="height:54rpx;margin-top:20rpx"></image>
+					<text class="titleText">试题</text>
+				</view>
+			</view>
+			<view>
+				<view>
+					<view class="pmed-qa-search-form">
+						<view class="pmed-select">
+							<text bindtap="toggleTypeSelect">{{selectedType}}</text>
+							<image src="../../images/pmed/down-arrow.png" bindtap="toggleTypeSelect"></image>
+							<view class="pmed-select-popup"  wx:if="{{showTypeSelect}}">
+								<view wx:for="{{types}}" wx:key="*this" data-type="{{item}}" bindtap="onTypeTap">{{item}}</view>
+							</view>
+						</view>
+						<view class="pmed-qa-search-input">
+							<input placeholder="请输入{{selectedType}}关键词" value="{{keyword}}" bindinput="onKeywordInput" confirm-type="search" bindconfirm="searchKeyword"></input>
+							<image src="../../images/pmed/search.png" bindtap="searchKeyword"></image>
+						</view>
+					</view>
+					<exam-collection wx:if="{{selectedType==='试题集'}}" keyword="{{confirmedKeyword}}"></exam-collection>
+					<exam-questions wx:if="{{selectedType==='试题'}}" keyword="{{confirmedKeyword}}"></exam-questions>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

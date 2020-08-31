@@ -1,0 +1,77 @@
+<view class="dataContainer containerCommon" style="padding-bottom: 160rpx;">
+	<!-- 案例banner -->
+	<view class="banner">
+		<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular>
+			<block>
+				<swiper-item>
+					<image class="swiper-item" src="../../images/pmed/case.png"></image>
+				</swiper-item>
+			</block>
+		</swiper>
+		<view class="point">
+			<view class="{{activepoint==item.index?activePoint:pointChildren}}" wx:for="{{pointList}}" wx:key="index"></view>
+		</view>
+	</view>
+	<!-- 案例显示 -->
+	<view>
+		<!-- 案例区 -->
+		<view class="specialContainer">
+			<view class="specialImgDiv">
+				<view class="title">
+					<image src="../../images/special.png" style="height:54rpx;margin-top:20rpx"></image>
+					<text class="titleText">案例</text>
+				</view>
+			</view>
+			<view>
+				<view>
+					<view class="pmed-qa-search-form">
+						<view class="pmed-qa-search-input">
+							<input placeholder="请输入案例关键词" value="{{keyword}}" bindinput="onKeywordInput" confirm-type="search" bindconfirm="search"></input>
+							<image src="../../images/pmed/search.png" bindtap="search"></image>
+						</view>
+					</view>
+					<view class="pemd-qa-search-toolbar" wx:if="{{searchParams.keyword}}">
+						<sort-bar value="{{sort}}" fields="{{sortFields}}" bindinput="onSortInput"></sort-bar>
+					</view>
+					<view class="pmed-search-list-body">
+						<view class="pmed-search-list-item" wx:for="{{items}}" wx:key="id" data-id="{{item.id}}" bindtap="showDetails">
+							<view class="pmed-case-item">
+								<view class="pmed-case-title">
+									<rich-text nodes="{{item.title}}"></rich-text>
+								</view>
+								<view class="pmed-case-style1" wx:if="{{item.containImgs.length<2}}">
+									<image class="pmed-case-image" wx:if="{{item.containImgs.length===1}}" src="{{item.containImgs[0]}}"></image>
+									<view>
+										<view class="pmed-case-summary">
+											<rich-text nodes="{{item.content}}"></rich-text>
+										</view>
+										<view class="pmed-case-source" wx:if="{{!searchParams.keyword}}">{{item.dataType==='微信'?item.author:item.site}}</view>
+										<view class="pmed-case-source-time" wx:else>
+											<view class="pmed-case-source">{{item.dataType==='微信'?item.author:item.site}}</view>
+											<view class="pmed-case-time">{{item.publishTime}}</view>
+										</view>
+									</view>
+								</view>
+								<view class="pmed-case-style2" wx:if="{{item.containImgs.length>1}}">
+									<view class="pmed-case-images">
+										<image class="pmed-case-image" wx:for="{{item.containImgs}}" wx:key="*this" src="{{item}}"></image>
+									</view>
+									<view class="pmed-case-source" wx:if="{{!searchParams.keyword}}">{{item.dataType==='微信'?item.author:item.site}}</view>
+									<view class="pmed-case-source-time" wx:else>
+										<view class="pmed-case-source">{{item.dataType==='微信'?item.author:item.site}}</view>
+										<view class="pmed-case-time">{{item.publishTime}}</view>
+									</view>
+								</view>
+								<view class="pmed-case-url" wx:if="{{searchParams.keyword}}">
+									<image src="../../images/pmed/link.png"></image>
+									<text>{{item.url}}</text>
+								</view>
+							</view>
+						</view>
+						<view class="pmed-search-list-tips" wx:if="{{loadingTips}}">{{loadingTips}}</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,4 @@
+<view class="navbar custom-class" style="padding-top:{{isIphoneX?'68rpx':'20rpx'}}">
+   <mp-icon icon="back" color="#fff" size="{{12}}" bindtap="navBack"></mp-icon><text class="sIze" bindtap="navBack"></text>
+   <view class="textDiv">{{pageName}}</view>
+</view>

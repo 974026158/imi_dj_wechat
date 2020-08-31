@@ -1,0 +1,12 @@
+{
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#fff",
+    "backgroundTextStyle": "dark",
+    "usingComponents": {
+        "phoneAuth": "/components/phoneAuth/phoneAuth",
+        "videodata":"/components/video/video",
+        "QA":"/components/questionsAndAnswers/questionsAndAnswers",
+        "test-questions":"/components/testQuestions/testQuestions",
+        "case":"/components/case/case"
+    }
+}

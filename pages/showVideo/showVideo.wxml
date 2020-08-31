@@ -1,0 +1,12 @@
+<view class="videoContainer">
+	<view class="title">{{title}}</view>
+	<view class="videoCon">
+  <!--  duration='300' 限制播放时间 -->
+    <video src="{{videoUrl}}" style="width:100%;height:100%" controls="true"></video>
+  </view>
+  <view class="informationDiv">
+    <view>主讲人：{{teacher}}</view>
+    <view class="titleTeach">介绍：{{info}}</view>
+  </view>
+</view>
+<view class="showToastVideo" wx:if="{{showToastFlag}}">您当前绑定微信的手机号非本小程序注册用户目前只可试看五分钟,请注册。</view>

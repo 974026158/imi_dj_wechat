@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "exam-collection": "/components/ExamCollection/ExamCollection",
+    "exam-questions": "/components/ExamQuestions/ExamQuestions"
+  }
+}

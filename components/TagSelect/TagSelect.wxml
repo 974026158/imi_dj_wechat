@@ -1,0 +1,3 @@
+<view class="tag-select class" style="{{style}}">
+	<text wx:for="{{richTags}}" class="tag tag-class {{item.selected?'selected':''}}" wx:key="value" data-tag="{{item}}" bindtap="onTagClick">{{item.label}}</text>
+</view>

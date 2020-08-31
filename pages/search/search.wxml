@@ -1,0 +1,123 @@
+<!--pages/search/search.wxml-->
+<view>
+	<view style="background: #fff;overflow-y:auto">
+		<!-- <scroll-view scroll-y="true" scroll-y style="background: #fff;"> -->
+		<view class="searchContainer">
+			<view
+				style="display: flex;justify-content: space-around;padding-left: 185rpx;padding-right: 185rpx;height: 70rpx;border-bottom: 1px solid #ccc;">
+				<text style="height:100%;align-items:center;" class="{{active==0?'activeClass':'activeDefault'}}"
+					bindtap="tabSearch">普通检索</text>
+				<text style="height:100%;align-items:center;" class="{{active==1?'activeClass':'activeDefault'}}"
+					bindtap="tabseainrSearch" data-target="searchModal" >高级检索</text>
+			</view>
+			<view class="searchInput">
+				<input type="text" placeholder="搜索图书" confirm-type="search" bindconfirm="searchByName"
+					style="border-radius:none" wx:if="{{active==0}}" />
+				<!-- <button bindtap="showModal" data-target="searchModal" wx:if="{{false}}">高级搜索</button> -->
+			</view>
+		</view>
+		<!-- 显示内容 -->
+		<view class="vantCard" wx:if='{{bookList.length>0}}' wx:for="{{bookList}}" wx:key="bookid"
+			data-isfree="{{item.isfree}}" data-bookid="{{item.bookid}}" data-bookname="{{item.bookName}}" bindtap="showBook">
+			<view>
+				<image src="{{config.url_prefix+item.imgUrl}}" style="height:234rpx;width:162rpx;margin:0 auto;display: block;"
+					class="borderCommon"></image>
+			</view>
+			<view class="vantText">
+				<!-- <view class="titleCon" wx:if="{{item.isfree == 1}}">免费</view> -->
+				<view style="display:flex;position: relative">
+					<view class="titleCon" wx:if="{{item.isfree == 1}}"
+						style="width: 42rpx;height: 32rpx;position: absolute;top: 4rpx;">免费
+					</view>
+					<rich-text class="title" nodes="{{item.bookname}}" style="text-indent: {{item.isfree == 1?'58rpx':'0rpx'}};">
+					</rich-text>
+				</view>
+				<rich-text
+					nodes="<div style='width:100%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;'>【作/编者】：{{item.author}}</div>">
+				</rich-text>
+				<text>【书号】：{{item.isbn}}</text>
+				<rich-text class="title"
+					nodes="<div style='width:100%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;font-size: 13px;color: #666'>【出版社】：{{item.publish}}</div>">
+				</rich-text>
+				<!-- <text>【出版社】：{{item.publish}}</text> -->
+				<text>【出版时间】：{{item.releaseDate}}</text>
+			</view>
+		</view>
+		<view class="noMore" wx:if="{{listFlag}}">-- 没有更多 --</view>
+		<!-- </scroll-view> -->
+	</view>
+	<view style="height:200rpx;line-height:200rpx;text-align:center" wx:if='{{noSearch}}'>
+		暂时没有数据
+	</view>
+	<!-- 高级检索输入项 -->
+	<view class="cu-modal {{modalName=='searchModal'?'show':''}}">
+		<view class="cu-dialog">
+			<view class="cu-bar bg-white justify-end">
+				<view class="content">高级检索</view>
+				<view class="action" bindtap="hideModal" style="line-height:93rpx">
+					<mp-icon icon="close" color="#ee2400" size="{{20}}"></mp-icon>
+				</view>
+			</view>
+			<view>
+				<view class="cu-bar bg-white solid-bottom margin-top" style="text-align:left;height:50rpx;padding-left:24rpx">
+					<view class="action" style="color:#ee2400">
+						<text style="color:#ee2400;margin-right:25rpx">●</text>请输入至少一项
+					</view>
+				</view>
+
+				<form>
+					<view class="cu-form-group margin-top" style="height:120rpx">
+						<view class="title">书名</view>
+						<input placeholder="请输入图书名称" model:value="{{bookName}}" style="padding-left:80rpx;flex:1;text-align:left" />
+					</view>
+
+					<view class="cu-form-group">
+						<view class="title">作者</view>
+						<input placeholder="请输入作者名称" model:value="{{author}}" style="padding-left:80rpx;flex:1;text-align:left" />
+					</view>
+
+					<view class="cu-form-group">
+						<view class="title">ISBN号</view>
+						<input placeholder="请输入ISBN号" model:value="{{isbn}}" style="flex:1;text-align:left;padding-left:48rpx;" />
+					</view>
+
+					<!-- <view class="cu-form-group">
+						<view class="title">相关词</view>
+						<input placeholder="请输入图书相关词" model:value="{{keyWord}}"
+							style="flex:1;text-align:left;padding-left:56rpx;" />
+					</view> -->
+
+					<view class="cu-form-group">
+						<view class="title">出版日期起始时间</view>
+						<picker mode="date" model:value="{{startDate}}" start="2015-09-01" end="2020-09-01"
+							bindchange="startDateChange">
+							<view class="picker">
+								{{startDate}}
+								<mp-icon icon="arrow" color="#999" size="{{12}}" style="margin-left: 10px;"></mp-icon>
+							</view>
+
+						</picker>
+					</view>
+					<view class="cu-form-group">
+						<view class="title">出版日期结束时间</view>
+						<picker mode="date" model:value="{{endDate}}" start="2015-09-01" end="2020-09-01"
+							bindchange="endDateChange">
+							<view class="picker">
+								{{endDate}}
+								<mp-icon icon="arrow" color="#999" size="{{12}}" style="margin-left: 10px;"></mp-icon>
+							</view>
+
+						</picker>
+					</view>
+				</form>
+			</view>
+			<view class="cu-bar bg-white justify-end" style="margin-top: 10px;">
+				<view class="action" style="display:flex;align-items: center">
+					<button class="cu-btn line-blue text-blue" bindtap="hideModal">取消</button>
+					<button class="cu-btn bg-blue margin-left" bindtap="searchByFilter">确定</button>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+<show-tost wx:if="{{showToastFlag}}"></show-tost>

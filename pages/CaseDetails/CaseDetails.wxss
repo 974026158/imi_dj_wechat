@@ -1,0 +1,79 @@
+page {
+  background-color: "#F4F4F4";
+}
+
+.section {
+  background: #FFFFFF;
+  box-shadow: 0 4rpx 14rpx 0 rgba(97, 97, 97, 0.26);
+  border-radius: 16rpx;
+  box-sizing: border-box;
+  padding: 22rpx;
+  margin: 20rpx 28rpx;
+}
+
+.pmed-case-url {
+  display: flex;
+  align-items: center;
+  margin-top: 8rpx;
+}
+
+.pmed-case-url>image {
+  width: 20rpx;
+  height: 22rpx;
+  margin-right: 10rpx;
+  flex-shrink: 0;
+}
+
+.pmed-case-url>text:nth-child(2) {
+  font-size: 22rpx;
+  color: #9B9B9B;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 10rpx;
+}
+
+.pmed-case-url>text:nth-child(3) {
+  font-size: 22rpx;
+  color: #F6302F;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.tips {
+  font-size: 24rpx;
+  color: #4A4A4A;
+}
+
+.title {
+  font-size: 32rpx;
+  color: #4A4A4A;
+}
+
+.infos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18rpx 0;
+  border-bottom: 2rpx solid #E8EBEF;
+}
+
+.infos>text {
+  font-size: 24rpx;
+  color: #545454;
+}
+
+.paragraph {
+  margin: 18rpx auto;
+  font-size: 24rpx;
+  color: #545454;
+}
+.paragraph>image{
+  max-width: 85%;
+  margin: 0 auto;
+  display: block;
+}
+.red {
+  color: rgba(203, 12, 12, 1);
+  font-style: normal;
+}

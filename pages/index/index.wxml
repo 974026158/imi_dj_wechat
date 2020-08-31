@@ -1,0 +1,90 @@
+<view wx:if="{{hasPhone}}">
+	<!-- 头部导航 -->
+	<view style="height:109rpx">
+		<!-- <top-nav></top-nav> -->
+		<view id='Container'>
+			<view class="{{item.id == optionActive ? 'optionActive' : 'option'}}" wx:for="{{optionList}}"
+				data-id="{{item.id}}" bindtap="tab" wx:key="id">{{item.text}}</view>
+		</view>
+	</view>
+	<!-- 数据容器 电子书 -->
+	<view class="dataContainer containerCommon" wx:if="{{optionActive==0}}">
+		<!-- banner -->
+		<view class="banner">
+			<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
+				circular bindchange="swiperEvent">
+				<block wx:for="{{background}}" wx:key="id">
+					<swiper-item>
+						<image class="swiper-item" src="{{item.topicImgUrl}}" data-id="{{item.id}}" data-name="{{item.name}}"
+							bindtap="bannerClick"></image>
+					</swiper-item>
+				</block>
+			</swiper>
+			<view class="point">
+				<view class="{{avtive==item?'activePoint':'pointChildren'}}" wx:for="{{pointList}}" wx:key="index"></view>
+			</view>
+		</view>
+		<!-- 最近更新 -->
+		<view class="updateDiv boxShaowStyle">
+			<view class="searchDiv" bindtap="goSearch">搜索图书</view>
+			<view class="updateText">—— 最近更新 ——</view>
+			<!-- 图书轮播图  172rpx 245rpx-->
+			<view class="bookBanner">
+				<swiper indicator-dots="{{updateindicatorDots}}" autoplay="{{updateautoplay}}" interval="{{interval}}"
+					duration="{{duration}}" circular indicator-active-color='#d60000' style="height:100%;">
+					<swiper-item wx:for="{{outerList}}" wx:key="index" style='text-align: center;'>
+						<block>
+							<!-- isfree == 1 -->
+							<view style="display:inline-block;" wx:for="{{item}}" wx:key="bookId" data-isfree="{{item.isfree}}"
+								data-bookid="{{item.bookId}}" data-bookname="{{item.bookname}}" bindtap="showBook">
+								<image class="swiper-item borderCommon" src="{{config.url_prefix+item.imgUrl}}"></image>
+								<text class="bookText bookTextCommon"><text class="titleCon" wx:if="{{item.isfree == 1}}">免费</text> {{item.bookname}}</text>
+							</view>
+						</block>
+					</swiper-item>
+				</swiper>
+			</view>
+		</view>
+		<!-- 专题 -->
+		<view class="specialDiv boxShaowStyle" wx:for='{{booksCoulmn}}' wx:key="id">
+			<view class="specialImgDiv">
+				<view class="title">
+					<image src="../../images/special.png" style="height:54rpx;margin-top:20rpx"></image>
+					<text class="titleText">{{item.name}}</text>
+				</view>
+				<view class="more" bindtap="goMore" data-name="{{item.name}}" data-id="{{item.id}}">更多>></view>
+			</view>
+			<!-- 书籍 -->
+			<view class="booksDiv">
+				<view wx:for="{{item.bookInfo}}" wx:key="bookid" class="booksDivCon" data-bookname="{{item.bookName}}"
+					data-isfree="{{item.isfree}}" data-bookid="{{item.bookid}}" bindtap="showBook">
+					<view>
+						<image src="{{config.url_prefix+item.imgUrl}}" style="width:192rpx;height:264rpx;" class="borderCommon">
+						</image>
+					</view>
+					<text class="bookText bookTextCommon"><text class="titleCon" wx:if="{{item.isfree == 1}}">免费</text> {{item.bookName}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
+	<!-- 数据容器 视频  -->
+	<videodata wx:if="{{optionActive==1}}" id="videodata"></videodata>
+	<!-- 数据容器 问答 -->
+	<QA wx:if="{{optionActive==2}}" id="QA"></QA>
+	<!-- 数据容器 课件 -->
+	<!-- <course-ware wx:if="{{optionActive==5}}" id="courseWare"></course-ware> -->
+	<!-- 数据容器 试题 -->
+	<test-questions wx:if="{{optionActive==3}}" id="testQuestions"></test-questions>
+	<!-- 数据容器 案例 -->
+	<case wx:if="{{optionActive==4}}" id="case"></case>
+
+	<import src="../../template/nav" />
+	<!-- 底部导航 -->
+	<view class="flex fix_nav_wp" style="height:{{isIphoneX?'140rpx':'114rpx'}}">
+		<block wx:for="{{navData}}" wx:key="index">
+			<template is="nav" data="{{...item}}" />
+		</block>
+	</view>
+</view>
+<phoneAuth bind:myevent="toggleToast" bind:myGETevent="toggleGetToast" wx:else></phoneAuth>
+<show-tost wx:if="{{showToastFlag}}"></show-tost>

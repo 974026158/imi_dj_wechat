@@ -1,0 +1,9 @@
+<view class="main">
+	<view class="mainCon">
+		<view class="icon" >
+			<image src="../../images/header.png" style="width:100%;height:100%;border-radius: 50%;" ></image>
+		</view>
+		<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="commonButton">手机号授权</button>
+		<view class="titletost">欢迎使用中国党员教育数据库！</view>
+	</view>
+</view>

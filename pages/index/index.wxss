@@ -1,0 +1,75 @@
+/**index.wxss**/
+@import "../../style/updateBooks.wxss";
+
+page {
+  background-color: #f0f0f0;
+}
+
+/* 数据容器 */
+.dataContainer {
+  width: 100%;
+}
+
+/* banner图 */
+.dataContainer>.banner {
+  height: 300rpx;
+  /* position: relative; */
+}
+
+image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 专题 */
+.dataContainer>.specialDiv {
+  width: 94%;
+  margin: 0 auto;
+  background: #fff;
+  margin-bottom: 30rpx;
+  margin-top: 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 0 30rpx 0;
+}
+
+.dataContainer>.specialDiv>.specialImgDiv {
+  width: 100%;
+  height: 55rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 30rpx;
+  margin-bottom: 28rpx;
+}
+
+.dataContainer>.specialDiv>.specialImgDiv>.title {
+  width: 80%;
+  position: relative;
+}
+
+.dataContainer>.specialDiv>.specialImgDiv>.title>.titleText {
+  position: absolute;
+  left: 25rpx;
+  top: 24rpx;
+  color: #fff;
+}
+
+.dataContainer>.specialDiv>.specialImgDiv>.more {
+  color: #d60000;
+}
+
+.dataContainer>.specialDiv>.booksDiv {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+/* 文本换行 */
+.dataContainer>.specialDiv>.booksDiv>.booksDivCon>.bookText {
+  width: 192rpx;
+  display: block;
+}
